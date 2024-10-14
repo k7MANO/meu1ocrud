@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Endereços Salvos</title>
+  </head>
+  <body>
+    <h1>Endereços Salvos</h1>
+    <table border="1">
+      <tr>
+        <th>Rua</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th>CEP</th>
+        <th>Ações</th>
+      </tr>
+      <% if (endereco && endereco.length > 0) { %> <%
+      endereco.forEach(function(end) { %>
+      <!-- Itera sobre os dados do endereço -->
+      <tr id="row-<%= end.id %>">
+        <td><%= end.rua %></td>
+        <td><%= end.cidade %></td>
+        <td><%= end.estado %></td>
+        <td><%= end.cep %></td>
+        <td>
+          <!-- Botão Editar -->
+          <a href="/endereco/edit/<%= end.id %>">
+            <button type="button">Editar</button>
+
+          <!-- Botão Deletar -->
+          <button class="btn-delete" data-id="<%= end.id %>">Delete</button>
+        </td>
+      </tr>
+      <% }); %> <% } else { %>
+      <tr>
+        <td colspan="5">Nenhum endereço salvo</td>
+      </tr>
+      <% } %>
+    </table>
+    <script>
+      // Adiciona evento de clique a todos os botões de delete
+      document.querySelectorAll('.btn-delete').forEach(function (button) {
+        button.addEventListener('click', async function () {
+          const enderecoId = this.getAttribute('data-id')
+
+          const confirmation = confirm(
+            'Tem certeza que deseja excluir este endereço?'
+          )
+          if (!confirmation) return
+
+          try {
+            const response = await fetch(`/endereco/${enderecoId}`, {
+              method: 'DELETE'
+            })
+
+            if (response.ok) {
+              // Remove a linha correspondente da tabela
+              document.getElementById(`row-${enderecoId}`).remove()
+              alert('Endereço excluído com sucesso!')
+            } else {
+              alert('Erro ao excluir o endereço')
+            }
+          } catch (error) {
+            alert('Erro na requisição: ' + error.message)
+          }
+        })
+      })
+    </script>
+  </body>
+</html>

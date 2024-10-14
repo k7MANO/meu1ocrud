@@ -1,0 +1,27 @@
+{
+  "name": "meuprimeirocrud",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node script.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.10",
+    "eslint-friendly-formatter": "^4.0.1",
+    "express": "^4.21.1",
+    "express-promise-router": "^4.1.1",
+    "mongodb": "^6.9.0",
+    "node-postgres": "^0.6.2",
+    "nodemon": "^3.1.7",
+    "path": "^0.12.7",
+    "pg": "^8.13.0",
+    "pg-promise": "^11.10.0",
+    "postgresql": "^0.0.1"
+  }
+}
