@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Endereços Salvos</title>
+  </head>
+  <body>
+    <h1>Endereços Salvos</h1>
+    <table border="1">
+      <tr>
+        <th>Rua</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th>CEP</th>
+        <th>Ações</th>
+      </tr>
+      <% if (endereco && endereco.length > 0) { %> <%
+      endereco.forEach(function(end) { %>
+      <!-- Itera sobre os dados do endereço -->
+      <tr id="row-<%= end.id %>">
+        <td><%= end.rua %></td>
+        <td><%= end.cidade %></td>
+        <td><%= end.estado %></td>
+        <td><%= end.cep %></td>
+        <td>
+          <!-- Botão Editar -->
+          <button
+            type="button"
+            class="btn-edit"
+            data-id="<%= end.id %>"
+            onclick="redirectToEdit(this)"
+          >
+            Editar
+          </button>
+
+          <!-- Botão Deletar -->
+          <button class="btn-delete" data-id="<%= end.id %>">Delete</button>
+        </td>
+      </tr>
+      <% }); %> <% } else { %>
+      <tr>
+        <td colspan="5">Nenhum endereço salvo</td>
+      </tr>
+      <% } %>
+    </table>
+    <script src="show.js"></script>
+  </body>
+</html>

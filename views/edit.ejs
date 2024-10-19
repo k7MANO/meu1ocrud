@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Editar Endereço</h1>
+    <form action="/edit/<%= endereco.id %>" method="POST">
+      <label for="rua">Rua:</label>
+      <input type="text" name="rua" value="<%= endereco.rua %>" />
+      <label for="cidade">Cidade:</label>
+      <input type="text" name="cidade" value="<%= endereco.cidade %>" />
+      <label for="estado">Estado:</label>
+      <input type="text" name="estado" value="<%= endereco.estado %>" />
+      <label for="cep">CEP:</label>
+      <input type="text" name="cep" value="<%= endereco.cep %>" />
+      <button type="submit">Salvar</button>
+    </form>
+  </body>
+</html>
