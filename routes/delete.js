@@ -1,11 +1,11 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const db = require('./sql/connect') // Conexão com o banco de dados
+const db = require('../sql/connect') // Conexão com o banco de dados
 const path = require('path')
 const del = express()
 
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
+del.use(bodyParser.urlencoded({ extended: true }))
+del.use(bodyParser.json())
 
 // Rota DELETE para excluir o endereço pelo ID
 del.delete('/endereco/:id', async (req, res) => {

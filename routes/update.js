@@ -1,6 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const db = require('./sql/connect') // Conexão com o banco de dados
+const db = require('../sql/connect') // Conexão com o banco de dados
 const path = require('path')
 const upd = express()
 
